@@ -477,11 +477,23 @@ require('lazy').setup({
       local servers = {
         -- clangd = {},
         -- gopls = {},
-        -- pyright = {},
         -- rust_analyzer = {},
         -- ts_ls = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-
+        -- pylsp = {
+        --   plugins = {
+        --     pycodestyle = {
+        --       ignore = {'W391', 'E501'},
+        --       maxLineLength = 120,
+        --     },
+        --     flake8 = {
+        --       ignore = {'W391', 'E501'},
+        --       maxLineLength = 120,
+        --     }
+        --   }
+        -- },
+        -- jedi_language_server = {},
+        basedpyright = {},
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
@@ -658,7 +670,7 @@ require('lazy').setup({
   },
 
   -- Highlight todo, notes, etc in comments
-  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = true } },
 
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
