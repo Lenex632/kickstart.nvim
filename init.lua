@@ -666,6 +666,15 @@ require('lazy').setup({
       vim.cmd.colorscheme 'catppuccin'
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
+
+      -- Прозрачный фон для всех окон
+      vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+      -- vim.api.nvim_set_hl(0, "NonText", { bg = "none" })
+
+      -- Прозрачный фон для плавающих окон
+      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+      -- vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
+
     end,
   },
 
