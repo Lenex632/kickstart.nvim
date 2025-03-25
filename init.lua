@@ -480,30 +480,47 @@ require('lazy').setup({
         -- rust_analyzer = {},
         -- ts_ls = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-        -- pylsp = {
-        --   plugins = {
-        --     pycodestyle = {
-        --       ignore = {'W391', 'E501'},
-        --       maxLineLength = 120,
-        --     },
-        --     flake8 = {
-        --       ignore = {'W391', 'E501'},
-        --       maxLineLength = 120,
-        --     }
-        --   }
-        -- },
-        -- jedi_language_server = {},
-        basedpyright = {},
+
+        pylsp = {
+          settings = {
+            pylsp = {
+              plugins = {
+                pycodestyle = {
+                  enabled = true,
+                  ignore = { 'W391', 'E501', 'W503' },
+                  maxLineLength = 120,
+                },
+                pylint = {
+                  enabled = false,
+                },
+                flake8 = {
+                  enabled = false,
+                },
+                autopep8 = {
+                  enabled = false,
+                },
+                black = {
+                  enabled = true,
+                },
+                yapf = {
+                  enabled = false,
+                },
+                jedi_completion = {
+                  enabled = true,
+                },
+                pylsp_mypy = {
+                  enabled = true,
+                },
+              },
+            },
+          },
+        },
         lua_ls = {
-          -- cmd = { ... },
-          -- filetypes = { ... },
-          -- capabilities = {},
           settings = {
             Lua = {
               completion = {
                 callSnippet = 'Replace',
               },
-              -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
               diagnostics = { disable = { 'missing-fields' } },
             },
           },
@@ -668,13 +685,12 @@ require('lazy').setup({
       vim.cmd.hi 'Comment gui=none'
 
       -- Прозрачный фон для всех окон
-      vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+      vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
       -- vim.api.nvim_set_hl(0, "NonText", { bg = "none" })
 
       -- Прозрачный фон для плавающих окон
-      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+      vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
       -- vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
-
     end,
   },
 
